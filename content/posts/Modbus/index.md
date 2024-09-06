@@ -2,6 +2,8 @@
 title: "Modbus"
 date: 2024-09-05T15:10:18+08:00
 draft: false
+tags:
+  - Modbus
 ---
 
 ## 1.为什么为出现Modbus？
@@ -56,6 +58,7 @@ UART（通用异步收发器）是一种串行通信硬件，用于在计算机�
 ## 3.Modbus有什么用？
 
 Modbus的主要用途是在工业自动化系统中实现设备间的通信。
+
 Modbus 是一种主从协议（Master/Slave），允许主设备（如 PLC、SCADA 系统、工控机）与多个从设备（如传感器、执行器、变频器、远程 I/O 模块等）进行通信。
 通过 Modbus，主设备可以读取从设备的数据，也可以向从设备发送控制指令。
 
@@ -106,7 +109,7 @@ Modbus TCP 是 Modbus 协议的以太网版本，它使用 TCP/IP 协议栈进�
 
 所以当我们提及Modbus协议时，要确定是哪种模式：RTU、ASCII或TCP，3种模式区别还是很大的。
 
-参考：
+## 参考：
 
 - https://www.csimn.com/CSI_pages/Modbus101.html
 - https://zh.wikipedia.org/wiki/Modbus
