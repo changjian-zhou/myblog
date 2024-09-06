@@ -4,7 +4,7 @@ date: 2024-09-05T15:10:18+08:00
 draft: false
 ---
 
-1.为什么为出现Modbus？
+## 1.为什么为出现Modbus？
 
 工业设备种类繁多且来自于不同的制造厂商，它们之间很难进行通信和协同工作，所以需要一个媒介进行通信，这种媒介就叫通信协议，而Modbus就是其中一个。
 
@@ -20,7 +20,7 @@ draft: false
 
 通信协议是一组规则和约定，定义了数据在两个或多个电子设备之间传输的方式。
 
-2.Modbus是什么？
+## 2.Modbus是什么？
 
 Modbus是一种用于工业电子设备之间通信的协议。
 
@@ -53,7 +53,7 @@ UART（通用异步收发器）是一种串行通信硬件，用于在计算机�
 波特率是指串行通信中数据传输的速率，即每秒传输的符号（信号变化）的数量。对于 Modbus RTU 和大多数串行通信，波特率也代表每秒钟传输的位数（bps，bit per second）。
 
 
-3.Modbus有什么用？
+## 3.Modbus有什么用？
 
 Modbus的主要用途是在工业自动化系统中实现设备间的通信。
 Modbus 是一种主从协议（Master/Slave），允许主设备（如 PLC、SCADA 系统、工控机）与多个从设备（如传感器、执行器、变频器、远程 I/O 模块等）进行通信。
@@ -61,7 +61,7 @@ Modbus 是一种主从协议（Master/Slave），允许主设备（如 PLC、SCA
 
 Modbus是一主多从的通信协议，Modbus通信中只有一个设备可以发送请求，其他从设备接收主机发送的数据来进行响应。
 
-4.Modbus怎么用？
+## 4.Modbus怎么用？
 
 每次数据交换都由主设备发出的请求和从设备发出的响应组成。
 每个数据包（无论是请求还是响应）都以设备地址或从设备地址开头，然后是功能代码，最后是定义请求或提供内容的参数。
@@ -74,13 +74,13 @@ Modbus是一主多从的通信协议，Modbus通信中只有一个设备可以�
 
 Modbus协议规定，进行读写操作的数据类型，按照读写属性和类型可分为以下4种：
 
-• 线圈（Coils）：1位，读写
+- 线圈（Coils）：1位，读写
 
-• 离散输入（Discretes Input  ）：1位，只读
+- 离散输入（Discretes Input）：1位，只读
 
-• 输入寄存器（Input Registers  ）：16位，只读
+- 输入寄存器（Input Registers）：16位，只读
 
-• 保持寄存器（Holding Registers）：16位，读写
+- 保持寄存器（Holding Registers）：16位，读写
 ![Modbus-Register-Types.png](Modbus-Register-Types.png)
 
 Modbus 协议定义了几个用于访问 Modbus 寄存器的功能代码。
@@ -92,15 +92,15 @@ Modbus 定义了四个不同的数据块，每个数据块中的地址或寄存�
 
 传输模式总的可分为两个传输模式：基于串行链路的和基于以太网TCP/IP的。常见的有以下三种：
 
-• 基于串口的Modbus-RTU
+- 基于串口的Modbus-RTU
 
 Modbus RTU 是 Modbus 协议的二进制实现版本。它通常用于串行通信，并以其紧凑的数据表示方式而闻名，这使得它具备高效和快速的特点。
 
-• 基于串口的Modbus-ASCII
+- 基于串口的Modbus-ASCII
 
 Modbus ASCII 是 Modbus 协议的 ASCII 实现版本。与 Modbus RTU 相比，它的效率较低，但由于使用人类可读的字符，因此更容易使用和调试。
 
-• 基于网口的Modbus-TCP
+- 基于网口的Modbus-TCP
 
 Modbus TCP 是 Modbus 协议的以太网版本，它使用 TCP/IP 协议栈进行通信，适用于现代工业网络环境。
 
@@ -108,12 +108,8 @@ Modbus TCP 是 Modbus 协议的以太网版本，它使用 TCP/IP 协议栈进�
 
 参考：
 
-https://www.csimn.com/CSI_pages/Modbus101.html
-
-https://zh.wikipedia.org/wiki/Modbus
-
-https://developer.aliyun.com/article/1078425
-
-https://blog.csdn.net/as480133937/article/details/123197782
-
-https://www.emqx.com/zh/blog/modbus-protocol-the-grandfather-of-iot-communication#modbus-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%BA%94%E7%94%A8
+- https://www.csimn.com/CSI_pages/Modbus101.html
+- https://zh.wikipedia.org/wiki/Modbus
+- https://developer.aliyun.com/article/1078425
+- https://blog.csdn.net/as480133937/article/details/123197782
+- https://www.emqx.com/zh/blog/modbus-protocol-the-grandfather-of-iot-communication#modbus-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%BA%94%E7%94%A8
