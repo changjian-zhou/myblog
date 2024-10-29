@@ -82,15 +82,15 @@ torch.onnx.export(model, dummy_input, "model.onnx")
 重要的是要确保所选平台能够满足你的性能、成本和易用性要求。此外，模型优化和适当的部署工具也是成功部署的关键。
  
 ## Pytorch与深度学习 #10.PyTorch训练好的模型如何部署到Tensorflow环境中
-链接：https://blog.csdn.net/poisonchry/article/details/141445973
+链接：[点击这里](https://blog.csdn.net/poisonchry/article/details/141445973)
 
 - PyTorch更适合开发，TensorFlow更适合部署。
 - 主要讲述了如何将Pytorch训练好的模型转换成适合部署在Tensorflow环境的模型。
-- 引出了树莓派。
+- 引出了树莓派，并演示了如何在树莓派上运行 Tensorflow Lite 模型。
 
 
 ## 如何将训练好的神经网络部署到嵌入式芯片上，如arduino和树莓派等？（知乎）
-链接：https://www.zhihu.com/question/382207885
+链接：[点击这里](https://www.zhihu.com/question/382207885)
 
 其中一位博主的回答：
 
@@ -112,6 +112,47 @@ torch.onnx.export(model, dummy_input, "model.onnx")
 - 模型的量化和剪枝首先需要大概知道原理，推荐了文章
 
 ## 训练好的深度学习模型原来这样部署的！（干货满满，收藏慢慢看）
-链接：https://blog.csdn.net/gzq0723/article/details/119223838?ops_request_misc=%257B%2522request%255Fid%2522%253A%25226A97068B-4896-47B9-BA69-1D4C93605A3E%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=6A97068B-4896-47B9-BA69-1D4C93605A3E&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119223838-null-null.142^v100^control&utm_term=%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%83%A8%E7%BD%B2&spm=1018.2226.3001.4187
+链接：[点击这里](https://blog.csdn.net/gzq0723/article/details/119223838?ops_request_misc=%257B%2522request%255Fid%2522%253A%25226A97068B-4896-47B9-BA69-1D4C93605A3E%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=6A97068B-4896-47B9-BA69-1D4C93605A3E&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119223838-null-null.142^v100^control&utm_term=%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%83%A8%E7%BD%B2&spm=1018.2226.3001.4187)
 
-该文章推荐了好多文章，需要细读
+以下需求讲解转自于《知乎-田子宸》
+1. 简单的demo演示，只要看看效果的，像是学校里面的demo展示这种
+2. 要放到服务器上去跑，但一不要求吞吐二不要求时延的那种，说白了还是有点玩玩的意思
+3. 放到服务器上跑，要求吞吐和时延（重点是吞吐）
+4. 放在NVIDIA嵌入式平台上跑，注重时延
+5. 放在其他嵌入式平台上跑，注重时延
+6. 上述部署方案不满足我的需求
+
+部署举例：
+
+作者：糖心他爸
+
+- 一般从离线训练到在线部署，我们需要依赖离线训练框架（静态图：tensorflow、caffe，动态图：pytorch、mxnet等），静态图工业部署成熟坑少，动态图灵活便捷、预研方便，各有各的好处；
+
+- 还需要依赖在线inference的框架（如阿里的MNN、腾讯的NCNN等等）。
+
+`部署流程`
+
+1. 模型设计和训练
+2. 针对推断框架的模型转换
+3. 模型部署
+
+深度学习模型部署方法
+
+出处：智云视图
+
+- Online 方式（云端）
+- Offline 方式（部署到移动端）
+
+`部署方法`
+1. 训练并得到模型
+2. 在得到模型后，在移动端进行部署。
+
+> 介绍了一些开源的移动端深度学习框架
+
+## 子豪兄部署
+链接：[点击这里](https://github.com/TommyZihao/Train_Custom_Dataset/tree/main)
+
+- 将.pth文件转换称了onnx文件
+- 使用了ONNX Runtime 推理器
+- 包含了图片识别代码和实时视频识别代码
+- 其中，扩展阅读包含了模型部署的博客（需要读一读，写的不错）
