@@ -114,7 +114,7 @@ torch.onnx.export(model, dummy_input, "model.onnx")
 ## 训练好的深度学习模型原来这样部署的！（干货满满，收藏慢慢看）
 链接：[点击这里](https://blog.csdn.net/gzq0723/article/details/119223838?ops_request_misc=%257B%2522request%255Fid%2522%253A%25226A97068B-4896-47B9-BA69-1D4C93605A3E%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=6A97068B-4896-47B9-BA69-1D4C93605A3E&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119223838-null-null.142^v100^control&utm_term=%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E9%83%A8%E7%BD%B2&spm=1018.2226.3001.4187)
 
-以下需求讲解转自于《知乎-田子宸》
+**以下需求讲解转自于《知乎-田子宸》**
 1. 简单的demo演示，只要看看效果的，像是学校里面的demo展示这种
 2. 要放到服务器上去跑，但一不要求吞吐二不要求时延的那种，说白了还是有点玩玩的意思
 3. 放到服务器上跑，要求吞吐和时延（重点是吞吐）
@@ -122,7 +122,7 @@ torch.onnx.export(model, dummy_input, "model.onnx")
 5. 放在其他嵌入式平台上跑，注重时延
 6. 上述部署方案不满足我的需求
 
-部署举例：
+**部署举例：**
 
 作者：糖心他爸
 
@@ -136,7 +136,7 @@ torch.onnx.export(model, dummy_input, "model.onnx")
 2. 针对推断框架的模型转换
 3. 模型部署
 
-深度学习模型部署方法
+**深度学习模型部署方法**
 
 出处：智云视图
 
