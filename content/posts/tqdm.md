@@ -1,7 +1,7 @@
 ---
 title: "Tqdm"
 date: 2024-11-20T15:48:30+08:00
-draft: true
+draft: false
 ---
 
 `tqdm`库在深度学习中可以显示训练过程的进度条。
