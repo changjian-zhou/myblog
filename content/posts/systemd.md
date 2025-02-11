@@ -4,26 +4,28 @@ date: 2024-11-01T17:01:48+08:00
 draft: false
 ---
 
+- `systemd` 是一种用于管理 Linux 系统和服务的**初始化系统**。
+- 每个 `systemd` 单元文件通常放在 `/etc/systemd/system/` 目录下，文件后缀通常为 `.service`（服务）、`.timer`（定时任务）等。
 
-
-- systemd 是一种用于管理 Linux 系统和服务的初始化系统。
-- 每个 systemd 单元文件通常放在 /etc/systemd/system/ 目录下，文件后缀通常为 .service（服务）、.timer（定时任务）等。
+---
 
 ## systemd 服务单元文件例子
-1. 创建服务文件
+
+## 1. 创建服务文件
 
 首先在 `/etc/systemd/system/` 目录下创建一个名为 `example.service` 的服务文件：
 
-
-
-`sudo nano /etc/systemd/system/example.service`
-
-2. 编辑服务单元文件
-
-在 example.service 中添加以下内容：
-
-
+```bash
+sudo nano /etc/systemd/system/example.service
 ```
+
+---
+
+## 2. 编辑服务单元文件
+
+在 `example.service` 中添加以下内容：
+
+```ini
 [Unit]
 Description=Example Python Script Service
 After=network.target
@@ -40,59 +42,67 @@ Environment="PYTHONUNBUFFERED=1"
 WantedBy=multi-user.target
 ```
 
-解释：
+### 📌 配置解析：
 
+- **[Unit]**
+    - `Description`：服务描述
+    - `After=network.target`：服务将在网络启动后启动
 
-- `[Unit]` 部分定义服务的描述以及依赖。`After=network.target` 表示这个服务将在网络启动后启动。
-- `[Service]` 部分定义了服务的行为：
+- **[Service]**
 
-    `Type=simple` 表示这个服务是一个简单的进程。
+    - `Type=simple`：表示这是一个简单的进程
+    - `ExecStart`：执行 Python 脚本
+    - `Restart=on-failure`：如果服务失败，自动重启
+    - `User`：指定运行该服务的用户
+    - `Environment="PYTHONUNBUFFERED=1"`：确保 Python 输出实时显示
 
-    `ExecStart` 指定服务启动的命令（此处运行 Python 脚本）。
+- **[Install]**
+    - `WantedBy=multi-user.target`：该服务将在多用户模式下启动
 
-    `Restart=on-failure` 表示在服务失败时自动重启。
+---
 
-    `User` 指定服务运行的用户。
-
-    `Environment` 用来设置环境变量，PYTHONUNBUFFERED=1 可以保证 Python 输出实时显示。
-
-- `[Install]` 部分定义服务的安装配置，WantedBy=multi-user.target 表示服务将在系统达到多用户模式时启动。
-
-
-3. 启动并启用服务
+## 3. 启动并启用服务
 
 保存文件后，执行以下命令使配置生效并启动服务：
 
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start example.service
+```
 
-`sudo systemctl daemon-reload`
+让服务在 **开机时自动启动**：
 
-`sudo systemctl start example.service`
+```bash
+sudo systemctl enable example.service
+```
 
-要让服务在开机时自动启动，可以运行：
+---
+
+## 4. 检查服务状态
+
+运行以下命令查看服务状态：
+
+```bash
+sudo systemctl status example.service
+```
+
+---
+
+## 5. 停止和禁用服务
+
+**停止服务**：
+
+```bash
+sudo systemctl stop example.service
+```
+
+**禁用服务开机自启**：
+
+```bash
+sudo systemctl disable example.service
+```
+
+---
 
 
-
-`sudo systemctl enable example.service`
-
-4. 检查服务状态
-
-使用以下命令查看服务状态：
-
-
-
-`sudo systemctl status example.service`
-
-5. 停止和禁用服务
-
-要停止服务，可以运行：
-
-
-
-`sudo systemctl stop example.service`
-
-要禁用服务的开机自启：
-
-
-
-`sudo systemctl disable example.service`
 
